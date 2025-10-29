@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories - AutoParts Pro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	 <header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-2">
+            <div class="container">
+                 <a class="navbar-brand" href="index.html">
+                  <img src="img/logo.jpg" alt="AutoParts Pro" height="70">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="category.html">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Categories Hero Section -->
+    <section class="categories-hero">
+        <div class="container">
+            <h1>Product Categories</h1>
+            <p>Browse our extensive collection of premium automotive parts organized by category</p>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search for products, brands, or parts..." id="searchInput">
+                    <button class="search-button" id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <button class="filter-btn active" data-filter="all">All Products</button>
+                    <button class="filter-btn" data-filter="featured">Featured</button>
+                    <button class="filter-btn" data-filter="sale">On Sale</button>
+                    <button class="filter-btn" data-filter="new">New Arrivals</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results Section -->
+    <section class="search-results" id="searchResults">
+        <div class="container">
+            <div class="results-header">
+                <h2 class="section-title">Search Results</h2>
+                <div class="results-count" id="resultsCount">0 products found</div>
+            </div>
+            <div class="row" id="resultsContainer">
+                <!-- Search results will be populated here -->
+            </div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h3>No products found</h3>
+                <p>Try adjusting your search terms or browse our categories</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Navigation -->
+    <section class="categories-nav">
+        <div class="container">
+            <div class="category-links">
+                <button class="category-link active" data-category="engine">Engine Components</button>
+                <button class="category-link" data-category="brake">Braking System</button>
+                <button class="category-link" data-category="suspension">Suspension & Steering</button>
+                <button class="category-link" data-category="electrical">Electrical System</button>
+                <button class="category-link" data-category="exhaust">Exhaust System</button>
+                <button class="category-link" data-category="cooling">Cooling System</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engine Components Category -->
+    <section id="engine" class="category-section">
+        <div class="container">
+            <h2 class="section-title">Engine Components</h2>
+            <p class="category-description">High-performance engine parts and accessories for optimal vehicle performance. From air filters to complete engine rebuild kits, we have everything you need.</p>
+            
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1624775104183-3dd8dfeb80ec?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFBlcmZvcm1hbmNlJTIwQWlyJTIwRmlsdGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500" alt="Performance Air Filter">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Air Filter</h3>
+                            <p class="product-price">$49.99</p>
+                            <ul class="product-features">
+                                <li>High-flow design</li>
+                                <li>Washable & reusable</li>
+                                <li>Improves horsepower</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Spark Plugs">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Spark Plugs</h3>
+                            <p class="product-price">$39.99</p>
+                            <ul class="product-features">
+                                <li>Iridium construction</li>
+                                <li>Longer lifespan</li>
+                                <li>Better fuel efficiency</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engine Oil Filter">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Premium Oil Filter</h3>
+                            <p class="product-price">$24.99</p>
+                            <ul class="product-features">
+                                <li>Synthetic media</li>
+                                <li>Anti-drain back valve</li>
+                                <li>Extended service life</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Braking System Category -->
+    <section id="brake" class="category-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Braking System</h2>
+            <p class="category-description">Reliable braking components for safety and performance on the road. From brake pads to complete brake system upgrades.</p>
+            
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Ceramic Brake Pads">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Ceramic Brake Pads</h3>
+                            <p class="product-price">$89.99</p>
+                            <ul class="product-features">
+                                <li>Quiet operation</li>
+                                <li>Low dust production</li>
+                                <li>Excellent stopping power</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Rotors">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Rotors</h3>
+                            <p class="product-price">$129.99</p>
+                            <ul class="product-features">
+                                <li>Cross-drilled & slotted</li>
+                                <li>Improved heat dissipation</li>
+                                <li>Reduced brake fade</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brake Calipers">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Calipers</h3>
+                            <p class="product-price">$199.99</p>
+                            <ul class="product-features">
+                                <li>4-piston design</li>
+                                <li>Anodized finish</li>
+                                <li>Improved braking force</li>
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-links">
+                        <img src="img/logo.jpg" alt="AutoParts Pro" height="70">
+                        <p>Your trusted source for premium automotive parts and accessories. We're committed to providing high-quality components for all your vehicle needs.</p>
+                        <div class="social-icons mt-4">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#categories">Categories</a></li>
+                            <li><a href="#products">Products</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h5>Categories</h5>
+                        <ul>
+                            <li><a href="#engine-products">Engine Components</a></li>
+                            <li><a href="#brake-products">Braking System</a></li>
+                            <li><a href="#suspension-products">Suspension & Steering</a></li>
+                            <li><a href="#electrical-products">Electrical System</a></li>
+                            <li><a href="#exhaust-products">Exhaust System</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-links">
+                        <h5>Contact Info</h5>
+                        <ul>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Auto Street, Car City</li>
+                            <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@autopartspro.com</li>
+                            <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM-6PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center py-3">
+			    <p>&copy; 2025 HAVI Moters. All Rights Reserved. | Developed by <strong>Neeraj Prajapati</strong></p>
+			</div>
+        </div>
+    </footer>
+
+    <!-- Other category sections would continue here... -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample product data for search functionality
+        const products = [
+            {
+                id: 1,
+                name: "Performance Air Filter",
+                category: "engine",
+                price: "$49.99",
+                image: "https://images.unsplash.com/photo-1624775104183-3dd8dfeb80ec?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFBlcmZvcm1hbmNlJTIwQWlyJTIwRmlsdGVyfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=500",
+                features: ["High-flow design", "Washable & reusable", "Improves horsepower"],
+                featured: true,
+                new: false,
+                sale: false
+            },
+            {
+                id: 2,
+                name: "Ceramic Brake Pads",
+                category: "brake",
+                price: "$89.99",
+                image: "https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870",
+                features: ["Quiet operation", "Low dust production", "Excellent stopping power"],
+                featured: true,
+                new: false,
+                sale: true
+            },
+            {
+                id: 3,
+                name: "Performance Shock Absorbers",
+                category: "suspension",
+                price: "$129.99",
+                image: "https://images.unsplash.com/photo-1745688810832-17937f36d53e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fFN1c3BlbnNpb24lMjAlMjYlMjBTdGVlcmluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500",
+                features: ["Gas-charged design", "Adjustable damping", "Improved handling"],
+                featured: false,
+                new: true,
+                sale: false
+            },
+            {
+                id: 4,
+                name: "Performance Spark Plugs",
+                category: "engine",
+                price: "$39.99",
+                image: "https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                features: ["Iridium construction", "Longer lifespan", "Better fuel efficiency"],
+                featured: false,
+                new: false,
+                sale: true
+            },
+            {
+                id: 5,
+                name: "LED Headlight Kit",
+                category: "electrical",
+                price: "$89.99",
+                image: "https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                features: ["6000K white light", "Plug-and-play installation", "50,000-hour lifespan"],
+                featured: true,
+                new: true,
+                sale: false
+            },
+            {
+                id: 6,
+                name: "Performance Muffler",
+                category: "exhaust",
+                price: "$149.99",
+                image: "https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                features: ["Stainless steel construction", "Aggressive tone", "Reduced backpressure"],
+                featured: false,
+                new: false,
+                sale: true
+            }
+        ];
+
+        // Category Navigation Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-link');
+            const categorySections = document.querySelectorAll('.category-section');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const searchResults = document.getElementById('searchResults');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const resultsCount = document.getElementById('resultsCount');
+            const noResults = document.getElementById('noResults');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            let currentFilter = 'all';
+            
+            // Show first category by default
+            categorySections[0].style.display = 'block';
+            
+            // Category navigation
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    const categoryId = this.getAttribute('data-category');
+                    
+                    // Remove active class from all links
+                    categoryLinks.forEach(l => l.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Hide all category sections
+                    categorySections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show selected category section
+                    document.getElementById(categoryId).style.display = 'block';
+                    
+                    // Hide search results
+                    searchResults.style.display = 'none';
+                    
+                    // Smooth scroll to the category section
+                    document.getElementById(categoryId).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
+            
+            // Search functionality
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    searchResults.style.display = 'none';
+                    return;
+                }
+                
+                // Filter products based on search term and current filter
+                const filteredProducts = products.filter(product => {
+                    const matchesSearch = product.name.toLowerCase().includes(searchTerm) ||
+                                         product.category.toLowerCase().includes(searchTerm) ||
+                                         product.features.some(feature => feature.toLowerCase().includes(searchTerm));
+                    
+                    let matchesFilter = true;
+                    if (currentFilter === 'featured') {
+                        matchesFilter = product.featured;
+                    } else if (currentFilter === 'sale') {
+                        matchesFilter = product.sale;
+                    } else if (currentFilter === 'new') {
+                        matchesFilter = product.new;
+                    }
+                    
+                    return matchesSearch && matchesFilter;
+                });
+                
+                // Display results
+                displaySearchResults(filteredProducts, searchTerm);
+            }
+            
+            // Display search results
+            function displaySearchResults(results, searchTerm) {
+                resultsContainer.innerHTML = '';
+                
+                if (results.length === 0) {
+                    noResults.style.display = 'block';
+                    resultsCount.textContent = `0 products found for "${searchTerm}"`;
+                } else {
+                    noResults.style.display = 'none';
+                    resultsCount.textContent = `${results.length} products found for "${searchTerm}"`;
+                    
+                    results.forEach(product => {
+                        const productCard = createProductCard(product);
+                        resultsContainer.appendChild(productCard);
+                    });
+                }
+                
+                searchResults.style.display = 'block';
+                searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Create product card HTML
+            function createProductCard(product) {
+                const col = document.createElement('div');
+                col.className = 'col-lg-4 col-md-6';
+                
+                const featuresHTML = product.features.map(feature => 
+                    `<li>${feature}</li>`
+                ).join('');
+                
+                col.innerHTML = `
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="product-overlay">
+                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">${product.name}</h3>
+                            <p class="product-price">${product.price}</p>
+                            <ul class="product-features">
+                                ${featuresHTML}
+                            </ul>
+                            <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                        </div>
+                    </div>
+                `;
+                
+                return col;
+            }
+            
+            // Event listeners for search
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.getAttribute('data-filter');
+                    
+                    // If there's a search term, update results
+                    if (searchInput.value.trim() !== '') {
+                        performSearch();
+                    }
+                });
+            });
+            
+            // Simple animation on scroll
+            const fadeElements = document.querySelectorAll('.product-card');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('fade-in');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Initial check
+        });
+    </script>
+</body>
+</html>
