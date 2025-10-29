@@ -6,7 +6,673 @@
     <title>AutoParts Pro - Premium Auto Components</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #333333;
+            --light-gray: #f8f9fa;
+            --dark-gray: #6c757d;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--primary-color);
+            background-color: var(--secondary-color);
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+        
+        /* Enhanced Navbar Styles */
+        header {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar {
+            padding: 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 1.5px;
+            color: var(--secondary-color) !important;
+            transition: var(--transition);
+            position: relative;
+            padding: 15px 0;
+        }
+        
+        .navbar-brand img {
+            transition: var(--transition);
+        }
+        
+        .navbar-brand:hover img {
+            transform: scale(1.05);
+        }
+        
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 5px 10px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        .navbar-nav {
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 600;
+            padding: 15px 20px !important;
+            position: relative;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, #333333, #000000);
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+            background: linear-gradient(135deg, #333333, #000000);
+            border-radius: 4px;
+        }
+        
+        .nav-link.active::before {
+            width: 100%;
+        }
+        
+        /* Hero Slider Styles */
+        .hero-slider {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            max-width: 600px;
+            padding: 0 40px;
+            color: var(--secondary-color);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .slide-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-custom {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .btn-custom:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .slider-arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .category-card {
+            background-color: var(--secondary-color);
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            transition: var(--transition);
+            margin-bottom: 30px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
+        }
+        
+        .category-card-body {
+            padding: 20px;
+        }
+        
+        .category-card-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        /* Products Section */
+        .product-card {
+            background-color: var(--secondary-color);
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            transition: var(--transition);
+            margin-bottom: 30px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-overlay {
+            opacity: 1;
+        }
+        
+        .product-card-body {
+            padding: 20px;
+        }
+        
+        .product-card-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .company-description {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 50px;
+        }
+        
+        .company-description h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .leader-profile {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: var(--transition);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .leader-profile:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .leader-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light-gray);
+        }
+        
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .leader-info h3 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .leader-position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .leader-quote {
+            font-style: italic;
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .leader-quote:before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+        
+        .leader-contact {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        /* Product Modal Styles */
+        .modal-content {
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .modal-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-bottom: none;
+            padding: 20px;
+        }
+        
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .product-modal-img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .product-modal-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .product-modal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .product-modal-description {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .product-modal-features {
+            margin-bottom: 20px;
+        }
+        
+        .product-modal-features h5 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .product-modal-features ul {
+            padding-left: 20px;
+        }
+        
+        .product-modal-features li {
+            margin-bottom: 8px;
+        }
+        
+        .product-modal-specs {
+            margin-bottom: 20px;
+        }
+        
+        .product-modal-specs h5 {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specs-table tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .specs-table td {
+            padding: 10px 0;
+        }
+        
+        .specs-table td:first-child {
+            font-weight: 600;
+            width: 40%;
+            color: var(--accent-color);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-links h5 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--dark-gray);
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--dark-gray);
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .slide-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                margin: 40px 0 20px;
+            }
+            
+            .slider-arrows {
+                display: none;
+            }
+            
+            .leader-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .company-description {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Enhanced Navbar -->
@@ -22,27 +688,25 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link active" href="#home">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="category.html">Categories</a>
+                            <a class="nav-link" href="#categories">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.html">Products</a>
+                            <a class="nav-link" href="#products">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="aboutus.html">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
+                            <a class="nav-link" href="#about">About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <!-- Hero Slider -->
-    <section class="hero-slider">
+    <section id="home" class="hero-slider">
         <div class="slider-container">
             <!-- Slide 1 -->
             <div class="slide active" style="background-image: url('img/banner.jpg');">
@@ -50,7 +714,7 @@
                     <div class="slide-content">
                         <h1 style="color:black;">Premium Auto Parts & Accessories</h1>
                         <p style="color:black;">Find the highest quality automotive components for your vehicle. From engine parts to accessories, we have everything you need to keep your car running smoothly.</p>
-                        <a href="#categories" class="btn btn-custom">Shop Now</a>
+                        <!-- <a href="#categories" class="btn btn-custom">Shop Now</a> -->
                     </div>
                 </div>
             </div>
@@ -61,7 +725,7 @@
                     <div class="slide-content">
                         <h1>Expert Technical Support</h1>
                         <p>Our team of automotive experts is available to help you find the right parts and provide installation guidance for your specific vehicle.</p>
-                        <a href="#services" class="btn btn-custom">Our Services</a>
+                        <!-- <a href="#products" class="btn btn-custom">Our Products</a> -->
                     </div>
                 </div>
             </div>
@@ -72,7 +736,7 @@
                     <div class="slide-content">
                         <h1>Fast & Free Shipping</h1>
                         <p>Get your auto parts delivered quickly with our free shipping on orders over $100. We ensure your parts arrive safely and on time.</p>
-                        <a href="#products" class="btn btn-custom">Browse Products</a>
+                        <!-- <a href="#products" class="btn btn-custom">Browse Products</a> -->
                     </div>
                 </div>
             </div>
@@ -83,7 +747,7 @@
                     <div class="slide-content">
                         <h1>Performance Upgrades</h1>
                         <p>Enhance your vehicle's performance with our premium upgrades. From air filters to exhaust systems, we have what you need.</p>
-                        <a href="#categories" class="btn btn-custom">Performance Parts</a>
+                        <!-- <a href="#categories" class="btn btn-custom">Performance Parts</a> -->
                     </div>
                 </div>
             </div>
@@ -108,7 +772,6 @@
         </div>
     </section>
 
-
     <!-- Categories Section -->
     <section id="categories" class="categories py-5">
         <div class="container">
@@ -122,7 +785,7 @@
                         <div class="category-card-body">
                             <h3 class="category-card-title">Engine Components</h3>
                             <p>High-performance engine parts and accessories for optimal vehicle performance.</p>
-                            <a href="#engine-products" class="btn btn-outline-dark">View Products</a>
+                            <a href="#products" class="btn btn-outline-dark">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -134,7 +797,7 @@
                         <div class="category-card-body">
                             <h3 class="category-card-title">Braking System</h3>
                             <p>Reliable braking components for safety and performance on the road.</p>
-                            <a href="#brake-products" class="btn btn-outline-dark">View Products</a>
+                            <a href="#products" class="btn btn-outline-dark">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +809,7 @@
                         <div class="category-card-body">
                             <h3 class="category-card-title">Suspension & Steering</h3>
                             <p>Quality suspension and steering parts for a smooth and controlled ride.</p>
-                            <a href="#suspension-products" class="btn btn-outline-dark">View Products</a>
+                            <a href="#products" class="btn btn-outline-dark">View Products</a>
                         </div>
                     </div>
                 </div>
@@ -160,53 +823,253 @@
             <h2 class="section-title">Featured Products</h2>
             <div class="row">
                 <!-- Product 1 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
                             <img src="img/14.jpg" alt="Performance Air Filter">
                             <div class="product-overlay">
-                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h3 class="product-card-title">Performance Air Filter</h3>
                             <p class="product-price">$49.99</p>
-                            <p>High-flow air filter for improved engine performance and fuel efficiency.</p>
-                            <a href="product-detail.html" class="btn btn-outline-dark">View Details</a>
+                            <p>High-flow air filter for improved engine performance.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Product 2 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
                             <img src="https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Ceramic Brake Pads">
                             <div class="product-overlay">
-                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h3 class="product-card-title">Ceramic Brake Pads</h3>
                             <p class="product-price">$89.99</p>
-                            <p>Premium ceramic brake pads for superior stopping power and durability.</p>
-                            <a href="product-detail.html" class="btn btn-outline-dark">View Details</a>
+                            <p>Premium ceramic brake pads for superior stopping power.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
                         </div>
                     </div>
                 </div>
+                
                 <!-- Product 3 -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
                             <img src="https://images.unsplash.com/photo-1760836395865-0c20fff2aefd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGVyZm9ybWFuY2UlMjBTaG9jayUyMEFic29yYmVyc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Performance Shock Absorbers">
                             <div class="product-overlay">
-                                <a href="product-detail.html" class="btn btn-custom">View Details</a>
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h3 class="product-card-title">Performance Shock Absorbers</h3>
                             <p class="product-price">$129.99</p>
-                            <p>High-performance shock absorbers for improved handling and ride comfort.</p>
-                            <a href="product-detail.html" class="btn btn-outline-dark">View Details</a>
+                            <p>High-performance shock absorbers for improved handling.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Spark Plugs">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Spark Plugs</h3>
+                            <p class="product-price">$39.99</p>
+                            <p>Iridium spark plugs for better fuel efficiency.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engine Oil Filter">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Premium Oil Filter</h3>
+                            <p class="product-price">$24.99</p>
+                            <p>Synthetic media oil filter with extended service life.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Rotors">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Rotors</h3>
+                            <p class="product-price">$129.99</p>
+                            <p>Cross-drilled & slotted rotors for improved braking.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brake Calipers">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Calipers</h3>
+                            <p class="product-price">$199.99</p>
+                            <p>4-piston design calipers for improved braking force.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lowering Springs">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal8">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Lowering Springs</h3>
+                            <p class="product-price">$179.99</p>
+                            <p>Progressive spring rate for improved stability.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal8">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sway Bars">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal9">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Sway Bars</h3>
+                            <p class="product-price">$149.99</p>
+                            <p>Adjustable stiffness for reduced body roll.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal9">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Battery">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal10">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Battery</h3>
+                            <p class="product-price">$159.99</p>
+                            <p>AGM technology battery with high cold cranking amps.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal10">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Headlights">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal11">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">LED Headlight Kit</h3>
+                            <p class="product-price">$89.99</p>
+                            <p>6000K white light with 50,000-hour lifespan.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal11">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 12 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alternator">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal12">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">High-Output Alternator</h3>
+                            <p class="product-price">$249.99</p>
+                            <p>200-amp output for improved charging.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal12">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 13 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Muffler">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal13">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Performance Muffler</h3>
+                            <p class="product-price">$149.99</p>
+                            <p>Stainless steel construction with aggressive tone.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal13">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 14 -->
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product-card">
+                        <div class="product-img">
+                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aluminum Radiator">
+                            <div class="product-overlay">
+                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal14">View Details</button>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h3 class="product-card-title">Aluminum Radiator</h3>
+                            <p class="product-price">$299.99</p>
+                            <p>All-aluminum construction with increased cooling capacity.</p>
+                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal14">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -214,61 +1077,65 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- About Section -->
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3>Free Shipping</h3>
-                        <p>Free shipping on all orders over $100. Fast delivery to your doorstep.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>24/7 Support</h3>
-                        <p>Our customer support team is available 24/7 to assist with any inquiries.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-undo-alt"></i>
-                        </div>
-                        <h3>Easy Returns</h3>
-                        <p>30-day return policy for all products. No questions asked.</p>
-                    </div>
-                </div>
+            <h2 class="section-title">About HAVI Motors</h2>
+            
+            <!-- Company Description -->
+            <div class="company-description">
+                <!-- <h3>Our Commitment to Quality</h3> -->
+                <p>At HAVI Motors, we specialize in delivering high-quality automotive cables designed for reliability, performance, and safety. With years of expertise in the automotive industry, we understand the critical role cables play in vehicle functionality, from power transmission to precise control systems.</p>
+                <p>Our commitment to excellence ensures that every product meets stringent quality standards, providing long-lasting performance under the toughest conditions. Whether you're a manufacturer, mechanic, or automotive enthusiast, we offer solutions tailored to keep vehicles running smoothly and efficiently.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section id="contact" class="contact-form">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            
+            <!-- Leadership Section -->
+            <h2 class="section-title">Our Leadership</h2>
             <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" placeholder="Your Name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
+                <!-- Founder -->
+                <div class="col-lg-6">
+                    <div class="leader-profile">
+                        <div class="leader-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Michael Rodriguez">
+                        </div>
+                        <div class="leader-info">
+                            <h3>Hari Prakash Ojha</h3>
+                            <div class="leader-position">Founder</div>
+                           
+                            <p class="member-bio">We are Limited , not by our abilities , but by our vision to move the World</p>
+                            <div class="leader-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+919582851663</span>
+                                </div>
+                               <!--  <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>michael@havimotors.com</span>
+                                </div> -->
                             </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Subject">
-                        <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-custom w-100">Send Message</button>
-                    </form>
+                    </div>
+                </div>
+                
+                <!-- CEO -->
+                <div class="col-lg-6">
+                    <div class="leader-profile">
+                        <div class="leader-image">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson">
+                        </div>
+                        <div class="leader-info">
+                            <h3>Vikas Pandey</h3>
+                            <div class="leader-position">Chief Executive Officer</div>
+                            <p class="member-bio">Our Vision is just not a roadmap, but the engine that drivers with power the future of mobility</p>
+                            <div class="leader-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+919453655253</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -280,7 +1147,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="footer-links">
-                        <img src="img/logo.jpg" alt="AutoParts Pro" height="70">
+                        <img src="img/logo.jpg" alt="HAVI Motors" height="70">
                         <p>Your trusted source for premium automotive parts and accessories. We're committed to providing high-quality components for all your vehicle needs.</p>
                         <div class="social-icons mt-4">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -294,11 +1161,10 @@
                     <div class="footer-links">
                         <h5>Quick Links</h5>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#home">Home</a></li>
                             <li><a href="#categories">Categories</a></li>
                             <li><a href="#products">Products</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#about">About Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -306,11 +1172,11 @@
                     <div class="footer-links">
                         <h5>Categories</h5>
                         <ul>
-                            <li><a href="#engine-products">Engine Components</a></li>
-                            <li><a href="#brake-products">Braking System</a></li>
-                            <li><a href="#suspension-products">Suspension & Steering</a></li>
-                            <li><a href="#electrical-products">Electrical System</a></li>
-                            <li><a href="#exhaust-products">Exhaust System</a></li>
+                            <li><a href="#products">Engine Components</a></li>
+                            <li><a href="#products">Braking System</a></li>
+                            <li><a href="#products">Suspension & Steering</a></li>
+                            <li><a href="#products">Electrical System</a></li>
+                            <li><a href="#products">Exhaust System</a></li>
                         </ul>
                     </div>
                 </div>
@@ -318,41 +1184,140 @@
                     <div class="footer-links">
                         <h5>Contact Info</h5>
                         <ul>
-                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Auto Street, Car City</li>
-                            <li><i class="fas fa-phone me-2"></i> +1 (555) 123-4567</li>
-                            <li><i class="fas fa-envelope me-2"></i> info@autopartspro.com</li>
-                            <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM-6PM</li>
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Ramnagar, Industrial Area, Varanasi</li>
+                            <li><i class="fas fa-phone me-2"></i> +919582851663</li>
+                          <!--   <li><i class="fas fa-envelope me-2"></i> info@havimotors.com</li>
+                            <li><i class="fas fa-clock me-2"></i> Mon-Fri: 9AM-6PM</li> -->
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-          <p>&copy; 2025 HAVI Moters. All Rights Reserved. | Developed by <strong>Neeraj Prajapati</strong></p>
+                <p>&copy; 2025 HAVI Motors. All Rights Reserved. | Developed by <strong>Neeraj Prajapati</strong></p>
             </div>
         </div>
     </footer>
 
+    <!-- Product Modals -->
+    <!-- Product Modal 1 -->
+    <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal1Label">Performance Air Filter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/14.jpg" alt="Performance Air Filter" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Performance Air Filter</h3>
+                            <p class="product-modal-price">$49.99</p>
+                            <div class="product-modal-description">
+                                <p>Our high-performance air filter is engineered to maximize airflow while providing superior filtration. Made with premium materials and advanced manufacturing techniques, this filter delivers improved engine performance, better fuel efficiency, and longer service life compared to standard filters.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>Increases horsepower and torque</li>
+                                    <li>Improves fuel economy</li>
+                                    <li>Washable and reusable design</li>
+                                    <li>Superior filtration efficiency</li>
+                                    <li>Easy installation - no tools required</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Technical Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Filtration Efficiency:</td>
+                                        <td>99.5% at 5 microns</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airflow Increase:</td>
+                                        <td>Up to 50% over OEM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Filter Life:</td>
+                                        <td>Up to 50,000 miles</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warranty:</td>
+                                        <td>10 Years / 100,000 Miles</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <button class="btn btn-custom w-100 mt-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Modal 2 -->
+    <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal2Label">Ceramic Brake Pads</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Ceramic Brake Pads" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Ceramic Brake Pads</h3>
+                            <p class="product-modal-price">$89.99</p>
+                            <div class="product-modal-description">
+                                <p>Premium ceramic brake pads designed for superior stopping power and durability. These brake pads offer quiet operation, low dust production, and excellent performance in various driving conditions.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>Quiet operation with minimal noise</li>
+                                    <li>Low dust production for cleaner wheels</li>
+                                    <li>Excellent stopping power in all conditions</li>
+                                    <li>Longer lifespan than organic pads</li>
+                                    <li>Compatible with most vehicle models</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Technical Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Material:</td>
+                                        <td>Premium Ceramic Compound</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Operating Temperature:</td>
+                                        <td>Up to 1,200°F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warranty:</td>
+                                        <td>3 Years / 36,000 Miles</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>Most Sedans and SUVs</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <button class="btn btn-custom w-100 mt-3">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals for other products would follow the same pattern -->
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Simple animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.category-card, .product-card, .service-card');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('fade-in');
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', fadeInOnScroll);
-            fadeInOnScroll(); // Initial check
-        });
-    </script>
     <script>
         // Hero Slider Functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -427,8 +1392,32 @@
             // Start the slideshow
             startSlideShow();
             
-            // Simple animation on scroll for other elements
-            const fadeElements = document.querySelectorAll('.category-card, .product-card, .service-card');
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Update active nav link
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Simple animation on scroll
+            const fadeElements = document.querySelectorAll('.category-card, .product-card, .leader-profile');
             
             const fadeInOnScroll = function() {
                 fadeElements.forEach(element => {
