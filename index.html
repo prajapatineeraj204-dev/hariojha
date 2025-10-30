@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AutoParts Pro - Premium Auto Components</title>
+    <title>HAVI Moters</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -672,6 +672,94 @@
                 padding: 25px;
             }
         }
+        .brand h1 {
+          display: inline;
+          color: #25668f;
+          font-size: 32px;
+        }
+        .brand span {
+          font-size: 32px;
+          font-weight: bold;
+        }
+        /* ---------- Footer ---------- */
+.footer-contact {
+  text-align: center;
+  font-size: 16px;
+  color: #222;
+  margin-top: 40px;
+}
+
+.footer-contact .developer {
+  color: #25668f;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---------- Modal Overlay ---------- */
+#contactModal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* ---------- Modal Box ---------- */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* ---------- Buttons ---------- */
+.modal-content a {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  border: 1px solid #25668f;
+  color: #25668f;
+  width: 70%;
+}
+
+.modal-content a:hover {
+  background-color: #25668f;
+  color: white;
+}
+
+/* ---------- Close Button ---------- */
+.close-btn {
+  background: #ccc;
+  border: none;
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.close-btn:hover {
+  background: #aaa;
+  color: #fff;
+}
+
+/* ---------- Animation ---------- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
     </style>
 </head>
 <body>
@@ -709,44 +797,56 @@
     <section id="home" class="hero-slider">
         <div class="slider-container">
             <!-- Slide 1 -->
-            <div class="slide active" style="background-image: url('img/banner.jpg');">
+            <div class="slide active" style="background-image: url('img/Picture1.jpg');">
                 <div class="container">
                     <div class="slide-content">
-                        <h1 style="color:black;">Premium Auto Parts & Accessories</h1>
-                        <p style="color:black;">Find the highest quality automotive components for your vehicle. From engine parts to accessories, we have everything you need to keep your car running smoothly.</p>
+                        <div class="brand">
+                          <h1>HAVI</h1><span>Moters</span>
+                        </div>
+                        <p style="color:black;">we don't just manufacture components; we engineer the critical connection that ensures seamless interaction between the rider and their bike. A control cable is the lifeline of a motorcycle—transmitting your intent to the wheels—and we treat its production with the highest degree of precision and care.</p>
                         <!-- <a href="#categories" class="btn btn-custom">Shop Now</a> -->
                     </div>
                 </div>
             </div>
             
             <!-- Slide 2 -->
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/478107962/photo/auto-parts.jpg?s=612x612&w=0&k=20&c=C31mE-cVYFlLqJp9smDKUczPoBEtoYl5gaGxdvH0lmM=');">
+            <div class="slide" style="background-image: url('img/Picture2.png');">
                 <div class="container">
                     <div class="slide-content">
-                        <h1>Expert Technical Support</h1>
-                        <p>Our team of automotive experts is available to help you find the right parts and provide installation guidance for your specific vehicle.</p>
+                        <h1>Engineered for Excellence:</h1>
+                        <p>Quality That Endures​ our dedication to quality is non-negotiable. We leverage state-of-the-art manufacturing techniques and source only premium, high-grade raw materials to produce control cables that are built to outperform and outlast.​Superior Materials: Utilizing corrosion-resistant galvanized steel wire ropes and robust, weather-proof PVC/Rubber casings, our cables are designed to withstand extreme temperatures, moisture, and road contaminants.​Friction-Free Performance: Our advanced internal lubrication and unique core design minimize friction, ensuring an instantaneous and accurate response every time you clutch, brake, or accelerate.
+</p>
                         <!-- <a href="#products" class="btn btn-custom">Our Products</a> -->
                     </div>
                 </div>
             </div>
             
             <!-- Slide 3 -->
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/467298516/photo/car-tires.jpg?s=612x612&w=0&k=20&c=kfjO4KJ3j1kp9d76RswlGoPxK9Ekl6RHsX3-WptacRo=');">
+            <div class="slide" style="background-image: url('img/Picture3.png');">
                 <div class="container">
                     <div class="slide-content">
-                        <h1>Fast & Free Shipping</h1>
-                        <p>Get your auto parts delivered quickly with our free shipping on orders over $100. We ensure your parts arrive safely and on time.</p>
+                        <h1>Our Product Range:</h1>
+                            <p>Uncompromising Reliability​ — We specialize in manufacturing the full spectrum of control cables, each designed to optimize vehicle performance and rider safety.</p>
+
+                        <ul style="list-style-type: square; margin-left: 20px;">
+                          <li>Accelerator / Throttle Cable</li>
+                          <li>Clutch Cable</li>
+                          <li>Brake Cable</li>
+                          <li>Speedometer Cable</li>
+                          <li>Choke Cable</li>
+                        </ul>
+
                         <!-- <a href="#products" class="btn btn-custom">Browse Products</a> -->
                     </div>
                 </div>
             </div>
             
             <!-- Slide 4 -->
-            <div class="slide" style="background-image: url('https://media.istockphoto.com/id/1193247902/photo/handsome-mechanic-in-uniform.jpg?s=612x612&w=0&k=20&c=lrbNvC3DUkxrJohwYTeR-IHLS1PdcwRhRmDIL4gats8=');">
+            <div class="slide" style="background-image: url('img/Picture4.jpg');">
                 <div class="container">
                     <div class="slide-content">
-                        <h1>Performance Upgrades</h1>
-                        <p>Enhance your vehicle's performance with our premium upgrades. From air filters to exhaust systems, we have what you need.</p>
+                        <h1>Fast & Free Shiping:</h1>
+                        <p>Get your Auto part quickly at door step.</p>
                         <!-- <a href="#categories" class="btn btn-custom">Performance Parts</a> -->
                     </div>
                 </div>
@@ -780,36 +880,36 @@
                 <div class="col-md-4">
                     <div class="category-card">
                         <div class="category-img">
-                            <img src="https://images.unsplash.com/photo-1758189414325-2fffb2ecb2fd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8RW5naW5lJTIwQ29tcG9uZW50c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Engine Parts">
+                            <img src="img/10.jpg" alt="Engine Parts">
                         </div>
                         <div class="category-card-body">
-                            <h3 class="category-card-title">Engine Components</h3>
-                            <p>High-performance engine parts and accessories for optimal vehicle performance.</p>
-                            <a href="#products" class="btn btn-outline-dark">View Products</a>
+                            <h3 class="category-card-title">MoterCycle Clutch</h3>
+                            <p>Our Motorcycle Clutch Cable ensures smooth and precise gear shifting, offering durability and flexibility for a reliable riding experience. Built with high-quality materials to withstand daily wear and extreme conditions.</p>
+                            <!-- <a href="#products" class="btn btn-outline-dark">View Products</a> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="category-card">
                         <div class="category-img">
-                            <img src="img/3.jpg" alt="Braking System">
+                            <img src="img/12.jpg" alt="Braking System">
                         </div>
                         <div class="category-card-body">
-                            <h3 class="category-card-title">Braking System</h3>
-                            <p>Reliable braking components for safety and performance on the road.</p>
-                            <a href="#products" class="btn btn-outline-dark">View Products</a>
+                            <h3 class="category-card-title">Two Wheelers Control cables</h3>
+                            <p>High-performance control cables designed for all types of two-wheelers. Engineered for smooth operation, durability, and precision—ensuring safe, responsive control of throttle, clutch, brake, and speed functions.</p>
+                            <!-- <a href="#products" class="btn btn-outline-dark">View Products</a> -->
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="category-card">
                         <div class="category-img">
-                            <img src="https://images.unsplash.com/photo-1745688810832-17937f36d53e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fFN1c3BlbnNpb24lMjAlMjYlMjBTdGVlcmluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Suspension">
+                            <img src="img/15.jpg" alt="Suspension">
                         </div>
                         <div class="category-card-body">
-                            <h3 class="category-card-title">Suspension & Steering</h3>
-                            <p>Quality suspension and steering parts for a smooth and controlled ride.</p>
-                            <a href="#products" class="btn btn-outline-dark">View Products</a>
+                            <h3 class="category-card-title">Brake Cable</h3>
+                            <p>Durable and high-strength brake cable engineered for quick response and smooth braking. Designed to ensure rider safety with superior flexibility and long-lasting performance in all weather conditions.</p>
+                            <!-- <a href="#products" class="btn btn-outline-dark">View Products</a> -->
                         </div>
                     </div>
                 </div>
@@ -817,265 +917,724 @@
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products py-5 bg-light">
+     <!-- Products Section -->
+    <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title">Featured Products</h2>
+            <h2 class="section-title">Our Products</h2>
             <div class="row">
-                <!-- Product 1 -->
+                <!-- Product 1 - Two Wheelers Control Cables -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="img/14.jpg" alt="Performance Air Filter">
+                            <img src="img/Two-Wheelers-Control-Cables.jpeg" alt="Two Wheelers Control Cables">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Air Filter</h3>
-                            <p class="product-price">$49.99</p>
-                            <p>High-flow air filter for improved engine performance.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
+                            <h3 class="product-card-title">Two Wheelers Control Cables</h3>
+                            <p>Premium quality control cables for smooth operation and durability.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal1">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 2 -->
+                <!-- Product 2 - Two Wheelers Air Filter -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Ceramic Brake Pads">
+                            <img src="img/11.jpg" alt="Two Wheelers Air Filter">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Ceramic Brake Pads</h3>
-                            <p class="product-price">$89.99</p>
-                            <p>Premium ceramic brake pads for superior stopping power.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
+                            <h3 class="product-card-title">Two Wheelers Air Filter</h3>
+                            <p>High-flow air filter for improved engine performance and fuel efficiency.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal2">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 3 -->
+                <!-- Product 3 - Two Wheelers Oil Filter -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1760836395865-0c20fff2aefd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UGVyZm9ybWFuY2UlMjBTaG9jayUyMEFic29yYmVyc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=500" alt="Performance Shock Absorbers">
+                            <img src="img/1.jpg" alt="Two Wheelers Oil Filter">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Shock Absorbers</h3>
-                            <p class="product-price">$129.99</p>
-                            <p>High-performance shock absorbers for improved handling.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
+                            <h3 class="product-card-title">Two Wheelers Oil Filter</h3>
+                            <p>Premium oil filters for optimal engine protection and performance.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal3">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 4 -->
+                <!-- Product 4 - Accelerator/Throttle Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Spark Plugs">
+                            <img src="img/AcceleratorThrottleCable.jpeg" alt="Accelerator/Throttle Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Spark Plugs</h3>
-                            <p class="product-price">$39.99</p>
-                            <p>Iridium spark plugs for better fuel efficiency.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
+                            <h3 class="product-card-title">Accelerator/Throttle Cable</h3>
+                            <p>Precision throttle cables for smooth acceleration response.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal4">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 5 -->
+                <!-- Product 5 - Clutch Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Engine Oil Filter">
+                            <img src="img/Clutch-Cable.jpeg" alt="Clutch Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Premium Oil Filter</h3>
-                            <p class="product-price">$24.99</p>
-                            <p>Synthetic media oil filter with extended service life.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
+                            <h3 class="product-card-title">Clutch Cable</h3>
+                            <p>Durable clutch cables for smooth gear shifting experience.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal5">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 6 -->
+                <!-- Product 6 - Brake Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Rotors">
+                            <img src="img/15.jpg" alt="Brake Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Rotors</h3>
-                            <p class="product-price">$129.99</p>
-                            <p>Cross-drilled & slotted rotors for improved braking.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
+                            <h3 class="product-card-title">Brake Cable</h3>
+                            <p>Reliable brake cables for optimal stopping power and safety.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal6">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 7 -->
+                <!-- Product 7 - Speedometer Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Brake Calipers">
+                            <img src="img/2.jpg" alt="Speedometer Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Calipers</h3>
-                            <p class="product-price">$199.99</p>
-                            <p>4-piston design calipers for improved braking force.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
+                            <h3 class="product-card-title">Speedometer Cable</h3>
+                            <p>Accurate speedometer cables for precise speed readings.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal7">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 8 -->
+                <!-- Product 8 - Choke Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lowering Springs">
+                            <img src="img/5.jpg" alt="Choke Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal8">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Lowering Springs</h3>
-                            <p class="product-price">$179.99</p>
-                            <p>Progressive spring rate for improved stability.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal8">View Details</button>
+                            <h3 class="product-card-title">Choke Cable</h3>
+                            <p>Smooth operating choke cables for easy cold starts.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal8">View Details</button>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Product 9 -->
+                <!-- Product 9 - Tachometer Cable -->
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product-card">
                         <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Sway Bars">
+                            <img src="img/TachometerCable.jpeg" alt="Tachometer Cable">
                             <div class="product-overlay">
                                 <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal9">View Details</button>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Sway Bars</h3>
-                            <p class="product-price">$149.99</p>
-                            <p>Adjustable stiffness for reduced body roll.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal9">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 10 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Battery">
-                            <div class="product-overlay">
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal10">View Details</button>
-                            </div>
-                        </div>
-                        <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Battery</h3>
-                            <p class="product-price">$159.99</p>
-                            <p>AGM technology battery with high cold cranking amps.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal10">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 11 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Headlights">
-                            <div class="product-overlay">
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal11">View Details</button>
-                            </div>
-                        </div>
-                        <div class="product-card-body">
-                            <h3 class="product-card-title">LED Headlight Kit</h3>
-                            <p class="product-price">$89.99</p>
-                            <p>6000K white light with 50,000-hour lifespan.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal11">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 12 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Alternator">
-                            <div class="product-overlay">
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal12">View Details</button>
-                            </div>
-                        </div>
-                        <div class="product-card-body">
-                            <h3 class="product-card-title">High-Output Alternator</h3>
-                            <p class="product-price">$249.99</p>
-                            <p>200-amp output for improved charging.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal12">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 13 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Performance Muffler">
-                            <div class="product-overlay">
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal13">View Details</button>
-                            </div>
-                        </div>
-                        <div class="product-card-body">
-                            <h3 class="product-card-title">Performance Muffler</h3>
-                            <p class="product-price">$149.99</p>
-                            <p>Stainless steel construction with aggressive tone.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal13">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Product 14 -->
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product-card">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1603712610496-5368ac261045?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aluminum Radiator">
-                            <div class="product-overlay">
-                                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#productModal14">View Details</button>
-                            </div>
-                        </div>
-                        <div class="product-card-body">
-                            <h3 class="product-card-title">Aluminum Radiator</h3>
-                            <p class="product-price">$299.99</p>
-                            <p>All-aluminum construction with increased cooling capacity.</p>
-                            <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#productModal14">View Details</button>
+                            <h3 class="product-card-title">Tachometer Cable</h3>
+                            <p>Precision tachometer cables for accurate RPM monitoring.</p>
+                            <button class="btn btn-outline-dark w-100" data-bs-toggle="modal" data-bs-target="#productModal9">View Details</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Product Modals -->
+    <!-- Modal 1 - Two Wheelers Control Cables -->
+    <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal1Label">Two Wheelers Control Cables</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/Two-Wheelers-Control-Cables.jpeg" alt="Two Wheelers Control Cables" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Two Wheelers Control Cables</h3>
+                            <div class="product-modal-description">
+                                <p>Our premium two-wheeler control cables are engineered for maximum durability and smooth operation. Made from high-quality materials with precision manufacturing, these cables ensure reliable performance and long service life.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>High tensile strength construction</li>
+                                    <li>Weather-resistant coating</li>
+                                    <li>Smooth operation with minimal friction</li>
+                                    <li>Compatible with most two-wheeler models</li>
+                                    <li>Easy installation and maintenance</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Material:</td>
+                                        <td>Stainless Steel Core with PVC Coating</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Length Options:</td>
+                                        <td>Various sizes available</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warranty:</td>
+                                        <td>1 Year</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>All major two-wheeler brands</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 - Two Wheelers Air Filter -->
+    <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal2Label">Two Wheelers Air Filter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/11.jpg" alt="Two Wheelers Air Filter" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Two Wheelers Air Filter</h3>
+                            <div class="product-modal-description">
+                                <p>Our high-performance air filters are designed to maximize airflow while providing superior filtration. The multi-layer construction ensures optimal engine performance, better fuel efficiency, and extended service life compared to standard filters.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>High-flow design for improved performance</li>
+                                    <li>Multi-layer filtration media</li>
+                                    <li>Washable and reusable (selected models)</li>
+                                    <li>Improved fuel efficiency</li>
+                                    <li>Easy installation</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Filtration Efficiency:</td>
+                                        <td>99.5% at 5 microns</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airflow Increase:</td>
+                                        <td>Up to 40% over OEM</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Service Life:</td>
+                                        <td>Up to 15,000 km</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>Most two-wheeler models</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 - Two Wheelers Oil Filter -->
+    <div class="modal fade" id="productModal3" tabindex="-1" aria-labelledby="productModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal3Label">Two Wheelers Oil Filter</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/1.jpg" alt="Two Wheelers Oil Filter" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Two Wheelers Oil Filter</h3>
+                            <div class="product-modal-description">
+                                <p>Our premium oil filters are engineered to provide superior engine protection by effectively removing contaminants from engine oil. The advanced filtration media ensures clean oil circulation, extending engine life and maintaining optimal performance.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>High-efficiency synthetic media</li>
+                                    <li>Anti-drain back valve</li>
+                                    <li>Extended service life</li>
+                                    <li>Optimal oil flow rate</li>
+                                    <li>Easy replacement</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Filtration Media:</td>
+                                        <td>High-density Synthetic</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Efficiency:</td>
+                                        <td>98% at 20 microns</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Service Interval:</td>
+                                        <td>5,000 - 7,000 km</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>Wide range of two-wheelers</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 - Accelerator/Throttle Cable -->
+    <div class="modal fade" id="productModal4" tabindex="-1" aria-labelledby="productModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal4Label">Accelerator/Throttle Cable</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/AcceleratorThrottleCable.jpeg" alt="Accelerator/Throttle Cable" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Accelerator/Throttle Cable</h3>
+                            <div class="product-modal-description">
+                                <p>Our precision-engineered throttle cables ensure smooth and responsive acceleration. Made with high-quality materials and advanced manufacturing techniques, these cables provide reliable performance and durability for all riding conditions.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>Smooth throttle response</li>
+                                    <li>Weather-resistant construction</li>
+                                    <li>Minimal friction operation</li>
+                                    <li>Easy installation</li>
+                                    <li>Long service life</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Core Material:</td>
+                                        <td>Stainless Steel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coating:</td>
+                                        <td>Weather-resistant PVC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warranty:</td>
+                                        <td>6 Months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>Most two-wheeler models</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Additional modals for other products would follow the same pattern -->
+    <!-- Modal 5 - Clutch Cable -->
+    <div class="modal fade" id="productModal5" tabindex="-1" aria-labelledby="productModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModal5Label">Clutch Cable</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="img/Clutch-Cable.jpeg" alt="Clutch Cable" class="product-modal-img">
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="product-modal-title">Clutch Cable</h3>
+                            <div class="product-modal-description">
+                                <p>Our durable clutch cables are designed for smooth and precise gear shifting. The high-quality construction ensures reliable performance and long-lasting durability, making gear changes effortless and precise.</p>
+                            </div>
+                            <div class="product-modal-features">
+                                <h5>Key Features:</h5>
+                                <ul>
+                                    <li>Smooth gear shifting</li>
+                                    <li>High tensile strength</li>
+                                    <li>Weather-resistant design</li>
+                                    <li>Easy installation</li>
+                                    <li>Long service life</li>
+                                </ul>
+                            </div>
+                            <div class="product-modal-specs">
+                                <h5>Specifications:</h5>
+                                <table class="specs-table">
+                                    <tr>
+                                        <td>Material:</td>
+                                        <td>Stainless Steel Core</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Coating:</td>
+                                        <td>Protective PVC Layer</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Warranty:</td>
+                                        <td>6 Months</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Compatibility:</td>
+                                        <td>Manual transmission two-wheelers</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 6 - Brake Cable -->
+<div class="modal fade" id="productModal6" tabindex="-1" aria-labelledby="productModal6Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModal6Label">Brake Cable</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/15.jpg" alt="Brake Cable" class="product-modal-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="product-modal-title">Brake Cable</h3>
+                        <div class="product-modal-description">
+                            <p>Our premium brake cables are engineered for maximum safety and reliability. Designed with high-tensile strength materials and precision manufacturing, these cables ensure consistent braking performance and quick response in all riding conditions.</p>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Key Features:</h5>
+                            <ul>
+                                <li>High tensile strength construction</li>
+                                <li>Weather and corrosion resistant</li>
+                                <li>Smooth operation with minimal friction</li>
+                                <li>Quick response braking</li>
+                                <li>Easy installation and adjustment</li>
+                            </ul>
+                        </div>
+                        <div class="product-modal-specs">
+                            <h5>Specifications:</h5>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Core Material:</td>
+                                    <td>Galvanized Steel Wire</td>
+                                </tr>
+                                <tr>
+                                    <td>Outer Coating:</td>
+                                    <td>Weather-resistant PVC</td>
+                                </tr>
+                                <tr>
+                                    <td>Breaking Strength:</td>
+                                    <td>200 kg minimum</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty:</td>
+                                    <td>1 Year</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibility:</td>
+                                    <td>Most two-wheeler models</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Applications:</h5>
+                            <ul>
+                                <li>Front and rear brake systems</li>
+                                <li>Motorcycles, scooters, and mopeds</li>
+                                <li>All weather conditions</li>
+                                <li>Urban and highway riding</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 7 - Speedometer Cable -->
+<div class="modal fade" id="productModal7" tabindex="-1" aria-labelledby="productModal7Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModal7Label">Speedometer Cable</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/2.jpg" alt="Speedometer Cable" class="product-modal-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="product-modal-title">Speedometer Cable</h3>
+                        <div class="product-modal-description">
+                            <p>Our precision-engineered speedometer cables provide accurate and reliable speed readings for your two-wheeler. Designed with smooth operation and durability in mind, these cables ensure your speedometer functions perfectly under all riding conditions.</p>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Key Features:</h5>
+                            <ul>
+                                <li>Accurate speed transmission</li>
+                                <li>Smooth rotational operation</li>
+                                <li>Durable construction</li>
+                                <li>Weather-resistant housing</li>
+                                <li>Easy to install and replace</li>
+                            </ul>
+                        </div>
+                        <div class="product-modal-specs">
+                            <h5>Specifications:</h5>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Core Type:</td>
+                                    <td>Flexible Steel Core</td>
+                                </tr>
+                                <tr>
+                                    <td>Housing Material:</td>
+                                    <td>Reinforced PVC</td>
+                                </tr>
+                                <tr>
+                                    <td>Length Options:</td>
+                                    <td>Various sizes available</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty:</td>
+                                    <td>1 Year</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibility:</td>
+                                    <td>Analog speedometer systems</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Applications:</h5>
+                            <ul>
+                                <li>Motorcycle speedometers</li>
+                                <li>Scooter speed indicators</li>
+                                <li>Moped speed measurement</li>
+                                <li>All analog speed systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 8 - Choke Cable -->
+<div class="modal fade" id="productModal8" tabindex="-1" aria-labelledby="productModal8Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModal8Label">Choke Cable</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/5.jpg" alt="Choke Cable" class="product-modal-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="product-modal-title">Choke Cable</h3>
+                        <div class="product-modal-description">
+                            <p>Our reliable choke cables are designed for smooth and effortless cold starts. Engineered with precision and durability, these cables ensure proper choke operation even in extreme weather conditions, making morning starts quick and hassle-free.</p>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Key Features:</h5>
+                            <ul>
+                                <li>Smooth choke operation</li>
+                                <li>Weather-resistant construction</li>
+                                <li>Easy pull and release mechanism</li>
+                                <li>Durable inner cable</li>
+                                <li>Simple installation process</li>
+                            </ul>
+                        </div>
+                        <div class="product-modal-specs">
+                            <h5>Specifications:</h5>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Cable Material:</td>
+                                    <td>Stainless Steel Core</td>
+                                </tr>
+                                <tr>
+                                    <td>Outer Housing:</td>
+                                    <td>Flexible PVC Coating</td>
+                                </tr>
+                                <tr>
+                                    <td>Operation:</td>
+                                    <td>Pull and Lock Mechanism</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty:</td>
+                                    <td>6 Months</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibility:</td>
+                                    <td>Carburetor choke systems</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Applications:</h5>
+                            <ul>
+                                <li>Cold weather starting</li>
+                                <li>Carburetor-equipped engines</li>
+                                <li>Motorcycles and scooters</li>
+                                <li>Manual choke systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal 9 - Tachometer Cable -->
+<div class="modal fade" id="productModal9" tabindex="-1" aria-labelledby="productModal9Label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="productModal9Label">Tachometer Cable</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="img/TachometerCable.jpeg" alt="Tachometer Cable" class="product-modal-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h3 class="product-modal-title">Tachometer Cable</h3>
+                        <div class="product-modal-description">
+                            <p>Our precision tachometer cables are engineered to provide accurate RPM readings for your vehicle's engine. With smooth rotational operation and durable construction, these cables ensure reliable performance and help you monitor your engine's health effectively.</p>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Key Features:</h5>
+                            <ul>
+                                <li>Accurate RPM transmission</li>
+                                <li>Smooth rotational movement</li>
+                                <li>Durable steel core construction</li>
+                                <li>Weather-resistant housing</li>
+                                <li>Easy to install and maintain</li>
+                            </ul>
+                        </div>
+                        <div class="product-modal-specs">
+                            <h5>Specifications:</h5>
+                            <table class="specs-table">
+                                <tr>
+                                    <td>Core Type:</td>
+                                    <td>Flexible Steel Cable</td>
+                                </tr>
+                                <tr>
+                                    <td>Housing Material:</td>
+                                    <td>Reinforced Plastic Coating</td>
+                                </tr>
+                                <tr>
+                                    <td>Maximum RPM:</td>
+                                    <td>Up to 12,000 RPM</td>
+                                </tr>
+                                <tr>
+                                    <td>Warranty:</td>
+                                    <td>1 Year</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibility:</td>
+                                    <td>Mechanical tachometer systems</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="product-modal-features">
+                            <h5>Applications:</h5>
+                            <ul>
+                                <li>Engine RPM monitoring</li>
+                                <li>Performance vehicles</li>
+                                <li>Racing applications</li>
+                                <li>Mechanical tachometer systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <!-- About Section -->
     <section id="about" class="about-section">
@@ -1096,7 +1655,7 @@
                 <div class="col-lg-6">
                     <div class="leader-profile">
                         <div class="leader-image">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Michael Rodriguez">
+                            <img src="img/hariojha.jpg" alt="Michael Rodriguez">
                         </div>
                         <div class="leader-info">
                             <h3>Hari Prakash Ojha</h3>
@@ -1121,7 +1680,7 @@
                 <div class="col-lg-6">
                     <div class="leader-profile">
                         <div class="leader-image">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sarah Johnson">
+                            <img src="img/vikash.jpg" alt="Sarah Johnson">
                         </div>
                         <div class="leader-info">
                             <h3>Vikas Pandey</h3>
@@ -1193,129 +1752,43 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 HAVI Motors. All Rights Reserved. | Developed by <strong>Neeraj Prajapati</strong></p>
-            </div>
+<p class="footer-contact">
+  &copy; 2025 HAVI Motors. All Rights Reserved. | Developed by 
+  <a class="developer" id="openModal"><strong>Neeraj Prajapati</strong></a>
+</p>
+
+<!-- ---------- Contact Modal ---------- -->
+<div id="contactModal">
+  <div class="modal-content">
+    <h2>Contact Neeraj Prajapati</h2>
+    <a href="mailto:prajapatineeraj204@gmail.com">📧 Email</a>
+    <a href="tel:+916307999739">📞 Call</a>
+    <a href="https://wa.me/916307999739" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+    <button class="close-btn" id="closeModal">Close</button>
+  </div>
+</div>
+
+<!-- ---------- JavaScript ---------- -->
+<script>
+document.getElementById("openModal").addEventListener("click", function(e){
+  e.preventDefault();
+  document.getElementById("contactModal").style.display = "block";
+});
+
+document.getElementById("closeModal").addEventListener("click", function(){
+  document.getElementById("contactModal").style.display = "none";
+});
+
+window.addEventListener("click", function(e){
+  if(e.target === document.getElementById("contactModal")){
+    document.getElementById("contactModal").style.display = "none";
+  }
+});
+</script>            </div>
         </div>
     </footer>
 
-    <!-- Product Modals -->
-    <!-- Product Modal 1 -->
-    <div class="modal fade" id="productModal1" tabindex="-1" aria-labelledby="productModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productModal1Label">Performance Air Filter</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="img/14.jpg" alt="Performance Air Filter" class="product-modal-img">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="product-modal-title">Performance Air Filter</h3>
-                            <p class="product-modal-price">$49.99</p>
-                            <div class="product-modal-description">
-                                <p>Our high-performance air filter is engineered to maximize airflow while providing superior filtration. Made with premium materials and advanced manufacturing techniques, this filter delivers improved engine performance, better fuel efficiency, and longer service life compared to standard filters.</p>
-                            </div>
-                            <div class="product-modal-features">
-                                <h5>Key Features:</h5>
-                                <ul>
-                                    <li>Increases horsepower and torque</li>
-                                    <li>Improves fuel economy</li>
-                                    <li>Washable and reusable design</li>
-                                    <li>Superior filtration efficiency</li>
-                                    <li>Easy installation - no tools required</li>
-                                </ul>
-                            </div>
-                            <div class="product-modal-specs">
-                                <h5>Technical Specifications:</h5>
-                                <table class="specs-table">
-                                    <tr>
-                                        <td>Filtration Efficiency:</td>
-                                        <td>99.5% at 5 microns</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airflow Increase:</td>
-                                        <td>Up to 50% over OEM</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Filter Life:</td>
-                                        <td>Up to 50,000 miles</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warranty:</td>
-                                        <td>10 Years / 100,000 Miles</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <button class="btn btn-custom w-100 mt-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Product Modal 2 -->
-    <div class="modal fade" id="productModal2" tabindex="-1" aria-labelledby="productModal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productModal2Label">Ceramic Brake Pads</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="https://images.unsplash.com/photo-1656232976683-7b688560e427?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Ceramic Brake Pads" class="product-modal-img">
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="product-modal-title">Ceramic Brake Pads</h3>
-                            <p class="product-modal-price">$89.99</p>
-                            <div class="product-modal-description">
-                                <p>Premium ceramic brake pads designed for superior stopping power and durability. These brake pads offer quiet operation, low dust production, and excellent performance in various driving conditions.</p>
-                            </div>
-                            <div class="product-modal-features">
-                                <h5>Key Features:</h5>
-                                <ul>
-                                    <li>Quiet operation with minimal noise</li>
-                                    <li>Low dust production for cleaner wheels</li>
-                                    <li>Excellent stopping power in all conditions</li>
-                                    <li>Longer lifespan than organic pads</li>
-                                    <li>Compatible with most vehicle models</li>
-                                </ul>
-                            </div>
-                            <div class="product-modal-specs">
-                                <h5>Technical Specifications:</h5>
-                                <table class="specs-table">
-                                    <tr>
-                                        <td>Material:</td>
-                                        <td>Premium Ceramic Compound</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Operating Temperature:</td>
-                                        <td>Up to 1,200°F</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Warranty:</td>
-                                        <td>3 Years / 36,000 Miles</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Compatibility:</td>
-                                        <td>Most Sedans and SUVs</td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <button class="btn btn-custom w-100 mt-3">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Additional modals for other products would follow the same pattern -->
+   
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
